@@ -1,0 +1,24 @@
+- apt_repository:
+    repo: ppa:mozillateam/ppa
+    state: present
+  become: yes
+
+- name: ensure standard firefox is absent
+  apt:
+    update_cache: yes
+    name:
+      - firefox
+  state: absent
+
+- name: ensure firefox-esr is installed
+  apt:
+    name:
+      - firefox-esr
+  become: yes
+
+- name: set policies.json
+  copy:
+    src: {{ firefox_esr_policy_file }}
+    dest: /usr/lib/firefox-esr/distribution/policies.json
+  become: yes
+  when: firefox_esr_policy_file is defined
