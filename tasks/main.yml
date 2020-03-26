@@ -18,7 +18,7 @@
 
 - name: set policies.json
   copy:
-    src: {{ firefox_esr_policy_file }}
+    src: "{{ firefox_esr_policy_file }}"
     dest: /usr/lib/firefox-esr/distribution/policies.json
   become: yes
   when: firefox_esr_policy_file is defined
