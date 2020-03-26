@@ -8,7 +8,7 @@
     update_cache: yes
     name:
       - firefox
-  state: absent
+    state: absent
 
 - name: ensure firefox-esr is installed
   apt:
