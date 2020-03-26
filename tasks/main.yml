@@ -9,6 +9,7 @@
     name:
       - firefox
     state: absent
+  become: yes
 
 - name: ensure firefox-esr is installed
   apt:
